@@ -17,4 +17,8 @@ export class StudentService {
     let URL = this.BaseURL + `class`;
     return this.http.get<any>(URL,{headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}});
   }
+  submitForm() {
+    let URL = this.BaseURL + `c`;
+    return this.http.get<any>(URL,{headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}});
+  }
 }

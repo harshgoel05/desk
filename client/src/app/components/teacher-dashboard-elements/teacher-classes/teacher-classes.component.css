@@ -135,3 +135,14 @@ h2{
 .example-full-width{
     width: 100%;
 }
+
+.fa-plus-circle{
+    margin: auto 5px;
+}
+
+.submit{
+    font-size: 20px;
+    color: #6D96FF;
+    margin-top: -40px !important;
+    cursor: pointer;
+}

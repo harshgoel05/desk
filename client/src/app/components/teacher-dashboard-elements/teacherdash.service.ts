@@ -10,14 +10,14 @@ export class TeacherdashService {
   BaseURL = environment.BaseURL;
   getClasslist() {
     let URL = this.BaseURL + 'class/';
-    return this.http.get<any>(URL);
+    return this.http.get<any>(URL,{headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}});
   }
   createClass(data) {
     let URL = this.BaseURL + 'class/new';
-    return this.http.post<any>(URL,data);
+    return this.http.post<any>(URL,data,{headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}});
   }
   deleteClass(data) {
     let URL = this.BaseURL + `class/remove/${data}`;
-    return this.http.delete(URL);
+    return this.http.delete(URL,{headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}});
   }
 }
