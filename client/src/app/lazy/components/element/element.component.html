@@ -1,0 +1,39 @@
+<!-- short answer -->
+<div class="box_answ" *ngIf='type == "short_answer"' >
+  <!-- <textarea (ngModelChange)="change($event)"  [(ngModel)]="field_value" rows="3"></textarea> -->
+  <mat-form-field class="example-full-width">
+    <mat-label>Short Answer</mat-label>
+    <input (ngModelChange)="change($event)"  [(ngModel)]="field_value" matInput placeholder="Type you answer">
+  </mat-form-field>
+</div>
+
+<!-- long answer-->
+
+
+<div class="box_answ" *ngIf='type == "long_answer"'>
+  <!-- <textarea (ngModelChange)="change($event)" [(ngModel)]="field_value"></textarea> -->
+  <mat-form-field class="example-full-width">
+    <mat-label>Answer</mat-label>
+    <textarea (ngModelChange)="change($event)" [(ngModel)]="field_value" matInput placeholder="Type your answer here"></textarea>
+  </mat-form-field>
+</div>
+
+<!-- question -->
+<div class="box_answ" style="display: flex;" *ngIf='type == "question"'>
+<!-- <span>Q </span>&nbsp; &nbsp; <textarea style="font-size: 15px;font-weight: bold;" [(ngModel)]="field_value" (ngModelChange)="change($event)" *ngIf="!disable"></textarea> -->
+<mat-form-field class="example-full-width" *ngIf="!disable">
+  <mat-label>Question</mat-label>
+  <textarea style="font-size: 15px;font-weight: 600;" [(ngModel)]="field_value" (ngModelChange)="change($event)"  matInput placeholder="Add your question"></textarea>
+</mat-form-field>
+<pre style="font-size: 15px;font-weight: bold;"  *ngIf="disable">
+Q.{{value}}
+</pre>
+</div>
+
+<!-- slect -->
+<div class="box_answ"  style="display: flex;justify-content: left;" *ngIf='type == "options"'>
+    <mat-radio-button class="radio" [value]="'yo'"><input (ngModelchange)="change($event)" [disabled]='disable'   [(ngModel)]="field_value"></mat-radio-button>
+</div>
+<div class="box_answ"  style="display: flex;justify-content: left;" *ngIf='type == "text"'>
+  {{value}}
+</div>

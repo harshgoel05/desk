@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.main{
+    position: relative;
+    overflow: hidden ;
+    height: 100vh;
+    width: 100%;
+
+}
+
+.line-top{
+    width: 100%;
+    height: 10px;
+    background-color: #326bff;
+    z-index: 5;
+}
+
+.circle-top{
+    width: 436px;
+    height: 436px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #F0F9FF;
+    top: -173px;
+    left: 1037px;
+    z-index: -1;
+}
+
+.circle-btm{
+    width: 436px;
+    height: 436px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #F0F9FF;
+    top: 300px;
+    left: -131px;
+    z-index: -1;
+}
+
+.center{
+    margin-top: 5% !important;
+    border: solid 1px; 
+    margin: auto 330px;
+    padding: 60px 0px !important;
+    position: relative !important;
+}
+
+.center h1{
+    font-size: 72px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: #6d6d6d;
+    text-align: center;
+}
+
+.corner-1{
+   position: absolute;
+    height: 20px;
+    width: 20px;
+    border: solid 4px #326bff;
+    background-color: white;
+    left: 0;
+    top: 0;
+    transform: translate(-50%,-50%);
+}
+
+.corner-2{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: solid 4px #326bff;
+    background-color: white;
+    left: 100%;
+    top: 0;
+    transform: translate(-50%,-50%);
+}
+
+.corner-3{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: solid 4px #326bff;
+    background-color: white;
+    left: 100%;
+    top: 100%;
+    transform: translate(-50%,-50%);
+}
+
+.corner-4{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border: solid 4px #326bff;
+    background-color: white;
+    left: 0;
+    top: 100%;
+    transform: translate(-50%,-50%);
+}
+
+.grad{
+    background: linear-gradient(90.47deg, #4D79FA -4.25%, #F6666D 93.04%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.selection{
+    margin-left: 55%;
+    transform: translateX(-50%);
+    margin-top: 30px;
+}
+
+.btun{
+    font-size: 28px;
+    font-family: 'Inter', sans-serif;
+    background-image: linear-gradient(276.11deg, #FFEAEA -7.51%, #DCD4ED 9.92%, #326BFF 93.9%);
+    color: white;
+    padding: 12px 35px;
+    border-radius: 10px;
+}
+
+.btun:focus{
+    outline: none;
+}
+
+.sec{
+    margin-left: 50px;
+}
+
+.side{
+    position: absolute;
+    top: 0;
+    left: 30px;
+}
+
+.side p{
+    transform: rotate(-90deg);
+    color: #cfcfcf;
+    font-size: 20px;
+    margin-left: -40px;
+    margin-top: 35px;
+}
+
+.line{
+    width: 1.5px;
+    background-color: #cfcfcf;
+    height: 82vh;
+  
+    margin-top: 10px;
+}

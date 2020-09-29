@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.main{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.circle-top{
+    width: 436px;
+    height: 436px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #F0F9FF;
+    top: -173px;
+    left: 1037px;
+    z-index: -1;
+}
+
+.circle-btm{
+    width: 436px;
+    height: 436px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #F0F9FF;
+    top: 300px;
+    left: -131px;
+    z-index: -1;
+}
+
+.headline{
+
+    margin-left: 120px;
+    margin-top: 20px;
+}
+
+.headline h1{
+    font-family: 'Inter', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    -webkit-text-fill-color: white; 
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+
+.instructions{
+    width: 80%;
+    margin-left: 7%;
+    background-color: #eee;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+li{
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.row{
+    width: 80%;
+    margin-left: 7%;
+}
+
+.col{
+    border-radius: 20px;
+    color: white;
+    margin: auto 20px;
+    background-color: #6D96FF;
+    margin-top: 50px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.col h1{
+    font-size: 27px;
+    padding: 20px 10px;
+    
+}
+
+.two{
+    background-color: #FF6C6C;
+}
+
+.three{
+    background-color: #78bd78;
+    text-align: center ;
+}

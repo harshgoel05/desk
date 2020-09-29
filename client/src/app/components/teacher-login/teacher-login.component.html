@@ -1,0 +1,44 @@
+<div class="main">
+    <app-nav></app-nav>
+    <div class="circle-top"></div>
+    <div class="circle-btm"></div>
+    <div class="side">
+        <div class="line"></div>
+        <p>#include</p>
+    </div>
+    <div class="headline">
+        <h1>Faculty Login</h1>
+    </div>
+    <div class="form-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-7">
+                    <div class="form">
+                        <form [formGroup] = 'loginForm'>
+                            <div class="form-group">
+                                <mat-form-field class="field" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input formControlName='email' matInput placeholder="Enter your email.">
+                                </mat-form-field>
+                                <span class='error'  *ngIf='f.controls.email.errors?.required && (f.controls.email.touched)'>this field is mandatory </span>
+                                <span class='error'  *ngIf='f.controls.email.errors?.email && (f.controls.email.touched) && !f.controls.email.errors?.required'>please enter valid email id</span>
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field class="field" appearance="outline">
+                                    <mat-label>Password</mat-label>
+                                    <input formControlName = 'password' matInput placeholder="Enter your password.">
+                                </mat-form-field>
+                            </div>
+                            <button class="btun" mat-button (click)="login()">Submit</button>
+                            <p>New here? <a href="">Register</a></p>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="col-5">
+                    <img src="../../../assets/clip-schoolteacher-near-the-blackboard 1.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

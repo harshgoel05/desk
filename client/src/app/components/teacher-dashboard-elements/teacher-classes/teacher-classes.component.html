@@ -1,0 +1,76 @@
+<div class="main">
+    <app-nav></app-nav>
+    <div class="circle-top"></div>
+    <div class="circle-btm"></div>
+    <div class="headline">
+        <h1>My Classes</h1>
+    </div>
+    <!-- <div class="container" >
+        <div class="row">
+          <ng-container *ngFor="let p of classList">
+
+
+            <div class="col">
+                <h2>{{p.subject}}</h2>
+            </div>
+           </ng-container>
+
+
+            <div class="col" (click)='openDialog()' >
+                <h2><i class="fas fa-plus"></i></h2>
+            </div>
+
+        </div>
+    </div> -->
+
+<div class="class container">
+  <ng-container *ngFor="let p of classList">
+    <mat-expansion-panel class="exp" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header class="head">
+      <mat-panel-title class="title">
+            {{p.subject}}
+      </mat-panel-title>
+      <mat-panel-description class="desc">
+            {{p.students.length}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p><span class="cod">Class Code: {{p.code }}</span><a href='{{p.meeting.link|| ""}}'><i class="fas fa-video"></i></a> <span class="del" (click)="deleteclass(p.code)" style="cursor: pointer;">Delete Class</span></p>
+  </mat-expansion-panel>
+  </ng-container>
+
+  <mat-expansion-panel class="exp" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header class="head add">
+      <mat-panel-title class="title">
+            Add Class
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <div class="add-form">
+        <div class="row">
+            <div class="col-sm">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Class Name</mat-label>
+                    <input matInput placeholder="Enter class name">
+                  </mat-form-field>
+            </div>
+            <div class="col-sm">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Video call link</mat-label>
+                    <input matInput placeholder="Enter call link">
+                  </mat-form-field>
+            </div>
+            <div class="col-sm">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Class Code</mat-label>
+                    <input matInput placeholder="Enter class code">
+                  </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+  </mat-expansion-panel>
+</div>
+
+</div>

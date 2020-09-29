@@ -1,0 +1,35 @@
+.box_answ{
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  min-height: 50px;
+ 
+  padding: 5px 10px;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+textarea{
+  width: 100%;
+}
+input{
+  width: 100%;
+}
+textarea:disabled{
+  border: none;
+  outline:none;
+
+}
+input{
+  border: none;
+  outline:none;
+background-color: white;
+}
+.example-full-width{
+  width: 100%;
+}
+
+.radio{
+  margin-top: 10px;
+}

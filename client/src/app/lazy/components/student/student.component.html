@@ -1,0 +1,19 @@
+<p>{{id}}</p>
+<p>{{msg}}</p>
+<div class="container-fluid" #wind>
+  <button (click)="openFullscreen()"></button>
+    <div class="header">
+        <div class="box"><div style="background-color: #F1F1F1;height: 100%;width: 200px;border-radius: 5px;padding: 20px;text-align: center;"><span style="font-size: 40px;">{{hour}}:{{minute}}:{{seconds}}</span></div></div>
+        <div class="box"> <img class="logo" src="../../../assets/logo.svg" alt="logo"></div>
+        <div class="box"><video height="100" width="150" #myvideo ></video></div>
+
+    </div>
+    <div class="container">
+          <ng-container >
+              <app-element [type]="'question'" [value]="'First Ques'" [disable]='true' ></app-element>
+              <app-element [type]="'options'" [value]="'Option1'" [disable]='true'></app-element>
+              <app-element [type]="'short_answer'" [value]="'answer'" [disable]='false' ></app-element>
+
+          </ng-container>
+    </div>
+</div>

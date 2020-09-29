@@ -1,0 +1,24 @@
+
+<div class="main">
+  <app-nav></app-nav>
+    <div class="circle-top"></div>
+    <div class="circle-btm"></div>
+    <div class="headline">
+        <h1>My Classes</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <ng-container *ngFor="let p of classList">
+              <div class="col">
+                <h2>{{p.subject}}</h2>
+            </div>
+            </ng-container>
+
+            <div class="col" style="text-align: center;">
+               <input class="form-control" style="margin-top: 40px;" placeholder="Enter Code" [(ngModel)]="code"><br>
+               <button class="btn btn-primary" (click)="join()">Join</button>
+            </div>
+
+        </div>
+    </div>
+</div>
