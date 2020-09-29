@@ -1,8 +1,13 @@
 import * as yup from "yup";
 
 export const classSchema = yup.object().shape({
-  code: yup.string().required(),
-  teacher: yup.string().required(),
+  subject_code: yup.string().required(),
+  subject: yup.string().required(),
+  meeting: yup.object({
+    link: yup.string().url().required(),
+    provider: yup.string().required(),
+  }),
+  teacher: yup.string(),
   students: yup
     .array()
     .of(
@@ -20,7 +25,7 @@ export const classSchema = yup.object().shape({
     .default(function () {
       return [];
     }),
-  timestamp: yup.date().default(function () {
+  timestamp: yup.number().default(function () {
     return +new Date();
   }),
 });

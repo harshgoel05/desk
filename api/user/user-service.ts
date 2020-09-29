@@ -33,10 +33,35 @@ export async function loginUser(userData: any) {
   const user = await dbClient
     .db()
     .collection("users")
-    .findOne({ email: userData.email });
+    .findOne({ email: userData.email }, { projection: { _id: 0 } });
   if (!user) throw { code: 401, message: USER_DOESNOT_EXISTS };
   const result = bcrypt.compareSync(userData.password, user.password);
   if (!result) throw { code: 401, message: WRONG_PASSWORD };
   const token = await jwt.sign(user, process.env.JWT_SECRET || "");
   return { token: token };
+}
+
+export async function getUserData(userData: any) {
+  const dbClient = await getDbClient();
+  const user = await dbClient
+    .db()
+    .collection("users")
+    .findOne(
+      { email: userData.email },
+      { projection: { _id: 0, password: 0 } }
+    );
+  if (!user) throw { code: 401, message: USER_DOESNOT_EXISTS };
+  return { ...userData, ...user };
+}
+export async function verifyEmail(email: any) {
+  const dbClient = await getDbClient();
+  const user = await dbClient
+    .db()
+    .collection("users")
+    .findOne({ email: email }, { projection: { _id: 0, password: 0 } });
+  if (!user) throw { code: 401, message: USER_DOESNOT_EXISTS };
+  await dbClient
+    .db()
+    .collection("users")
+    .findOneAndUpdate({ email: email }, { $set: { isVerified: true } });
 }

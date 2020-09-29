@@ -10,7 +10,7 @@ export const SERVER_ERROR = {
 
 export const UNAUTHORIZED_ERROR = {
   success: false,
-  error: "Stop! Unautorized access",
+  error: "Stop! Unautorized access, You can't proceed furthur",
 };
 
 export const BAD_REQUEST = {
@@ -31,4 +31,17 @@ export const USER_DOESNOT_EXISTS = {
 export const WRONG_PASSWORD = {
   success: false,
   error: "Uh,oh ! It seems you havn't entered correct password",
+};
+
+export const CLASSROOM_DOESNOT_EXISTS = {
+  success: false,
+  error: "Invalid! The classroom code seems to be invalid",
+};
+export const ALREADY_JOINED_CLASSROOM = {
+  success: false,
+  error: "Wait, you are already in that class? Aren't you?",
+};
+export const NO_CLASSROOMS_FOUND = {
+  success: false,
+  error: "No classrooms found! Join or Create one now!",
 };
