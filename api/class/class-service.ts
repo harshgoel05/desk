@@ -32,7 +32,10 @@ export async function deleteClass(classid: any, user: any) {
   if (user.role && user.role != "teacher")
     throw { code: 401, message: UNAUTHORIZED_ERROR };
   const dbClient = await getDbClient();
-
+  if (
+    !(await dbClient.db().collection("classrooms").findOne({ code: classid }))
+  )
+    throw { code: 404, message: NO_CLASSROOMS_FOUND };
   await dbClient.db().collection("classrooms").deleteOne({ code: classid });
 }
 

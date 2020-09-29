@@ -7,6 +7,9 @@ export const classSchema = yup.object().shape({
     link: yup.string().url().required(),
     provider: yup.string().required(),
   }),
+  tests: yup.array().default(function () {
+    return [];
+  }),
   teacher: yup.string(),
   students: yup
     .array()
@@ -29,3 +32,5 @@ export const classSchema = yup.object().shape({
     return +new Date();
   }),
 });
+
+export const classIdSchema = yup.string().required();

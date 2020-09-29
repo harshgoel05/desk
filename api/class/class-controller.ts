@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import { authenticate, getUser } from "../auth/auth";
 import { SERVER_ERROR } from "../utils/errors";
 import { validateRequest } from "../utils/validator";
-import { classSchema } from "./class-model";
+import { classIdSchema, classSchema } from "./class-model";
 import {
   createClass,
   deleteClass,
