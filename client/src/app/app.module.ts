@@ -5,10 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //Http modules
 
-
 // Services
 import { AuthService } from './Authtools/auth.service';
-
 
 import { FacultyComponent } from './faculty/faculty.component';
 import { WebrtcService } from './webrtc.service';
@@ -23,15 +21,15 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { TeachersArenaComponent } from './components/teacher-dashboard-elements/teachers-arena/teachers-arena.component';
 import { TeacherClassesComponent } from './components/teacher-dashboard-elements/teacher-classes/teacher-classes.component';
 import { TeachersClassDetailsComponent } from './components/teacher-dashboard-elements/teachers-class-details/teachers-class-details.component';
-import { MatButtonModule, MatIconModule, MatSelectModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatSelectModule,
+} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { TeacherdashService } from './components/teacher-dashboard-elements/teacherdash.service';// import {MatTableModule} from '@angular/material/table';
+import { TeacherdashService } from './components/teacher-dashboard-elements/teacherdash.service'; // import {MatTableModule} from '@angular/material/table';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from './../environments/environment'
+import { environment } from './../environments/environment';
 
 import { TeacherResponsesComponent } from './components/teacher-dashboard-elements/teacher-responses/teacher-responses.component';
 
@@ -42,7 +40,6 @@ import {
   MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
-
   MatButtonToggleModule,
   MatCardModule,
   MatCheckboxModule,
@@ -51,7 +48,6 @@ import {
   MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
-
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
@@ -59,9 +55,7 @@ import {
   MatProgressBarModule,
   MatProgressSpinnerModule,
   MatRadioModule,
-
   MatRippleModule,
-
   MatSidenavModule,
   MatSliderModule,
   MatSlideToggleModule,
@@ -73,9 +67,8 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
-
 } from '@angular/material';
-import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddClassPopComponent } from './components/teacher-dashboard-elements/add-class-pop/add-class-pop.component';
 
 @NgModule({
@@ -92,7 +85,7 @@ import { AddClassPopComponent } from './components/teacher-dashboard-elements/ad
     TeacherClassesComponent,
     TeachersClassDetailsComponent,
     TeacherResponsesComponent,
-    AddClassPopComponent
+    AddClassPopComponent,
   ],
   imports: [
     BrowserModule,
@@ -105,10 +98,6 @@ import { AddClassPopComponent } from './components/teacher-dashboard-elements/ad
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireAuthModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -148,22 +137,18 @@ import { AddClassPopComponent } from './components/teacher-dashboard-elements/ad
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    HttpClientModule
-
-
-
-
-
-
-
-
+    HttpClientModule,
   ],
-  providers: [WebrtcService, AuthService,
+  providers: [
+    WebrtcService,
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
-     multi: true
-  }, TeacherdashService],
-  bootstrap: [AppComponent]
+      multi: true,
+    },
+    TeacherdashService,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
