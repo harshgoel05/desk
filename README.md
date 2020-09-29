@@ -1,8 +1,8 @@
-# desk-backend
+# Desk-Backend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
-###Prerequisites: Nodejs, Angular 10, Yarn
+Prerequisites: Nodejs, Angular 10, Yarn
 
 ## Development server
 
