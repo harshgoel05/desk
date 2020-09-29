@@ -10,7 +10,7 @@ export const SERVER_ERROR = {
 
 export const UNAUTHORIZED_ERROR = {
   success: false,
-  error: "Stop! Unautorized access",
+  error: "Stop! Unautorized access, You can't proceed furthur",
 };
 
 export const BAD_REQUEST = {
