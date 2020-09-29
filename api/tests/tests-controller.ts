@@ -8,7 +8,8 @@ async function addTestHandler(req: Request, res: Response) {
   try {
     const testData = req.body;
     const classid = req.params.classid;
-    await addTest(testData, classid);
+    const user = res.locals.user;
+    await addTest(testData, classid, user);
     res.status(200).send();
   } catch (err) {
     if (err.code) res.status(err.code).json(err.message);
@@ -17,16 +18,22 @@ async function addTestHandler(req: Request, res: Response) {
 }
 async function addTestSubmissionsHandler(req: Request, res: Response) {
   try {
-    // await addTestSubmission(classroom);
+    const sub_data = req.body;
+    const classid = req.params.classid;
+    const testid = req.params.testid;
+    const user = res.locals.user;
+    await addTestSubmission(classid, testid, sub_data, user);
     res.status(200).send();
   } catch (err) {
+    console.log(err);
     if (err.code) res.status(err.code).json(err.message);
     else res.status(500).json(SERVER_ERROR);
   }
 }
 async function getAllTestsHandler(req: Request, res: Response) {
   try {
-    // await getAllTests(classroom);
+    const classid = req.params.classid;
+    await getAllTests(classid);
     res.status(200).send();
   } catch (err) {
     if (err.code) res.status(err.code).json(err.message);
@@ -37,7 +44,10 @@ async function getAllTestsHandler(req: Request, res: Response) {
 export default function testController() {
   const router = Router();
   router.post("/:classid/new", authenticate(), addTestHandler);
-  router.post("/submission", authenticate(), addTestSubmissionsHandler);
-  router.get("/", authenticate(), getAllTestsHandler);
+  router.post(
+    "/:classid/:testid/submission",
+    authenticate(),
+    addTestSubmissionsHandler
+  );
   return router;
 }

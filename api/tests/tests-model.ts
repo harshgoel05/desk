@@ -3,8 +3,8 @@ import * as yup from "yup";
 export const testSchema = yup.object().shape({
   test_code: yup.string(),
   test_name: yup.string().required(),
-  test_duration: yup.string().required(),
-  total_marks: yup.string().required(),
+  test_duration: yup.number().required(),
+  total_marks: yup.number().required(),
   startTime: yup.number().required(),
   questions: yup.array().default(function () {
     return [];

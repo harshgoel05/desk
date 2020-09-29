@@ -45,3 +45,8 @@ export const NO_CLASSROOMS_FOUND = {
   success: false,
   error: "No classrooms found! Join or Create one now!",
 };
+
+export const TEST_ALREADY_GIVEN = {
+  success: false,
+  error: "It seems you have already given the test.",
+};
