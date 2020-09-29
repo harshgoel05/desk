@@ -1,13 +1,18 @@
 import { getDbClient } from "../utils/database";
 import * as bcrypt from "bcryptjs";
 import { userSchema } from "./user-model";
-import { USER_ALREADY_EXISTS } from "../utils/errors";
-export async function loginUser(userData: any) {}
+import {
+  USER_ALREADY_EXISTS,
+  USER_DOESNOT_EXISTS,
+  WRONG_PASSWORD,
+} from "../utils/errors";
+import * as jwt from "jsonwebtoken";
+
 export async function signupUser(userData: any) {
   let newUser = (await userSchema.cast(userData)) || userData;
   const dbClient = await getDbClient();
 
-  let user = dbClient
+  const user = await dbClient
     .db()
     .collection("users")
     .findOne({ email: newUser.email });
@@ -21,4 +26,17 @@ export async function signupUser(userData: any) {
       await dbClient.db().collection("users").insertOne(newUser);
     });
   });
+}
+
+export async function loginUser(userData: any) {
+  const dbClient = await getDbClient();
+  const user = await dbClient
+    .db()
+    .collection("users")
+    .findOne({ email: userData.email });
+  if (!user) throw { code: 401, message: USER_DOESNOT_EXISTS };
+  const result = bcrypt.compareSync(userData.password, user.password);
+  if (!result) throw { code: 401, message: WRONG_PASSWORD };
+  const token = await jwt.sign(user, process.env.JWT_SECRET || "");
+  return { token: token };
 }

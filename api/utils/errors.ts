@@ -22,3 +22,13 @@ export const USER_ALREADY_EXISTS = {
   success: false,
   error: "Uh,oh! It seems you have already registered before",
 };
+
+export const USER_DOESNOT_EXISTS = {
+  success: false,
+  error: "Wait! It seems you havn't registered yet",
+};
+
+export const WRONG_PASSWORD = {
+  success: false,
+  error: "Uh,oh ! It seems you havn't entered correct password",
+};

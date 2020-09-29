@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { SERVER_ERROR, UNAUTHORIZED_ERROR } from "../utils/errors";
-
+import * as jwt from "jsonwebtoken";
 export function authenticate() {
   return async (req: Request, res: Response, next: NextFunction) => {
     const header = req.headers["authorization"];
@@ -13,7 +13,7 @@ export function authenticate() {
     }
 
     try {
-      const user = await token; //FIXME  Get user
+      const user = await getUser(token); //FIXME  Get user
       if (!user) {
         return res.status(401).json(UNAUTHORIZED_ERROR);
       }
@@ -26,4 +26,12 @@ export function authenticate() {
       res.status(500).json(SERVER_ERROR);
     }
   };
+}
+
+export async function getUser(token: any) {
+  var decoded = await jwt.verify(
+    token,
+    (process.env.JWT_SECRET as string) || ""
+  );
+  return decoded;
 }
