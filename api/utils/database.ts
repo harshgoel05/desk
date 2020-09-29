@@ -1,5 +1,4 @@
 import { MongoClient } from "mongodb";
-import { SERVER_ERROR } from "./errors";
 let dbClient: MongoClient;
 export async function initDbClient() {
   try {
@@ -8,6 +7,7 @@ export async function initDbClient() {
       useUnifiedTopology: true,
       ignoreUndefined: true,
     });
+    console.log("Connected to Database");
     return dbClient;
   } catch (error) {
     throw error;
