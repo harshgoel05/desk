@@ -6,7 +6,9 @@
   "author": "harshgoel05 <harshgoel05@gmail.com>",
   "scripts": {
     "start": "node build/server.js",
-    "dev": "npx tsc-watch --onSuccess \"node ./build/server.js\""
+    "build": "npm tsc",
+    "dev": "npx tsc-watch --onSuccess \"node ./build/server.js\"",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
