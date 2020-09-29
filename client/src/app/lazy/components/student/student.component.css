@@ -1,0 +1,11 @@
+.header{
+  display: flex;
+  justify-content: space-evenly;
+}
+.container{
+  margin-top: 40px;
+  border-style: solid;
+  border-color: #FF6F6F;
+  border-radius: 15px;
+  padding: 20px;
+}

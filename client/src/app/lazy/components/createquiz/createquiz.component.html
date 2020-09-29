@@ -1,0 +1,71 @@
+<div class="main">
+
+    <app-nav></app-nav>
+  <div class="headline">
+    <h1>Form Builder</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row  "  cdkDropListGroup>
+      <div class="col-md-3 ">
+
+        <div class="row obj_list">
+
+          <div class="col-md-3 label">
+            components
+          </div>
+          <div class="col-md-9 component ">
+            <span style="font-size: 15px;color: white" >Click here to add</span>
+
+            <app-element  [type]='"text"' [value]='"Short Answer"'  (click)="additem({id:3,value:'Short Answer',type:'shoort_answer'})"  ></app-element>
+            <app-element  [type]='"text"' [value]='"Options"'   (click)="additem({id:3,value:'Short Answer',type:'options'})" ></app-element>
+            <app-element  [type]='"text"' [value]='"long Answer"' (click)="additem({id:3,value:'Short Answer',type:'long_answer'})" ></app-element>
+            <app-element  [type]='"text"' [value]='"Question"' (click)="additem({id:3,value:'Short Answer',type:'question'})"  ></app-element>
+            <app-element  [type]='"text"' [value]='"Short Answer"' ></app-element>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9 drop_box">
+
+        <div class="drop_space">
+          <div  #droplist="cdkDropList"  cdkDropList [cdkDropListData]="drop_list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let elem of drop_list;let i = index" [cdkDragDisabled]="i==0" cdkDrag>
+
+              <app-element [type]='elem.type' [value]='elem.value' (onvalue) ='getData($event,i)' ></app-element>
+            </div>
+
+          </div>
+
+
+          <!-- <fieldset
+    cdkDropList
+    id="drop-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <legend>Fields</legend>
+
+    <mat-expansion-panel
+     *ngFor="let field of fields; let fieldIndex = index; "
+      cdkDrag
+    >
+      <div *cdkDragPlaceholder class="field-placeholder"></div>
+
+      <mat-expansion-panel-header cdkDragHandle>
+        <mat-panel-title>{{ field }}</mat-panel-title>
+        <mat-panel-description>
+          {{ field }}
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Dummy info here
+    </mat-expansion-panel>
+  </fieldset> -->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "desk-55018": {
+      "hosting": {
+        "onlineTest": [
+          "desk-55018"
+        ]
+      }
+    }
+  }
+}

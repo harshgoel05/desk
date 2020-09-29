@@ -37,7 +37,7 @@ async function createServer() {
   /************************************************
                     Start server
   *************************************************/
-  app.listen(process.env.PORT, () => {
+  app.listen(3000, () => {
     console.log("Server running on port", process.env.PORT);
   });
 }

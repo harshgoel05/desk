@@ -1,0 +1,24 @@
+<nav>
+   <div class="logo" class="nav-logo">
+      <img class="logo" src="../../../assets/logo.svg" alt="logo">
+   </div>
+   <div class="nav-content">
+      <span class="nav-element">
+         <a >Home</a>
+      </span>
+      <span class="nav-element">
+         <a href="">About</a>
+      </span>
+      <span class="nav-element">
+         <a href="">Team</a>
+      </span>
+      <span class="nav-element" >
+         <button class="button" routerLink="/reg" routerLinkActive #sinup = "routerLinkActive" *ngIf="!login">Signup</button>
+         <button class="button" *ngIf="login" (click)="logout()" >Logout</button>
+      </span>
+      <!-- <span class="nav-element" >
+        <button class="button" routerLink="/loginr">Login</button>
+     </span> -->
+   </div>
+
+</nav>

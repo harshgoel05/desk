@@ -1,0 +1,91 @@
+<div class="main">
+    <app-nav></app-nav>
+    <div class="circle-top"></div>
+    <div class="circle-btm"></div>
+    <div class="side">
+        <div class="line"></div>
+        <p>#include</p>
+    </div>
+    <div class="headline">
+        <h1>Register</h1>
+    </div>
+    <div class="form-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <form class="form" [formGroup] = 'registerForm'>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <mat-form-field class="field" appearance="outline">
+                                        <mat-label>First Name</mat-label>
+                                        <input formControlName='fName' type="text" matInput placeholder="Enter first name.">
+                                    </mat-form-field>
+                                    <span class='error'  *ngIf='f.controls.fName.errors?.required && (f.controls.fName.touched)'>please enter your name </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <mat-form-field class="field" appearance="outline">
+                                        <mat-label>Last Name</mat-label>
+                                        <input formControlName='lName' type="text" matInput placeholder="Enter last name.">
+                                    </mat-form-field>
+                                    <span class='error'  *ngIf='f.controls.lName.errors?.required && (f.controls.lName.touched)'>please enter your name </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <mat-form-field class="field" appearance="outline">
+                                        <mat-label>Email</mat-label>
+                                        <input formControlName='email' type="email" matInput placeholder="Enter your email.">
+                                    </mat-form-field>
+                                    <span class='error'  *ngIf='f.controls.email.errors?.required && (f.controls.email.touched)'>this field is mandatory </span>
+                                    <span class='error'  *ngIf='f.controls.email.errors?.email && (f.controls.email.touched) && !f.controls.email.errors?.required'>please enter valid email id </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <mat-form-field appearance="outline" class="field" required>
+                                        <mat-label>Role</mat-label>
+                                        <mat-select formControlName='role'>
+                                          <mat-option value="teacher">Teacher</mat-option>
+                                          <mat-option value="student">Student</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <mat-form-field class="field" appearance="outline">
+                                        <mat-label>Password</mat-label>
+                                        <input formControlName='password' type="password" matInput placeholder="Enter your password.">
+                                    </mat-form-field>
+                                    <span class='error'  *ngIf='f.controls.password.errors?.required && (f.controls.password.touched)'>please enter a password  </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <mat-form-field class="field" appearance="outline">
+                                        <mat-label>Confirm Password</mat-label>
+                                        <input formControlName='conf_pass' type="password" matInput placeholder="Confirm your password.">
+                                    </mat-form-field>
+                                    <span class='error'  *ngIf='f.controls.conf_pass.errors?.ConfirmedValidator && (f.controls.conf_pass.touched)'>Password did not match </span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btun"   mat-flat-button (click)="register()">Submit</button>
+                        <p>Already registered? <a routerLink="/teacherLogin">Login</a></p>
+                      </form>
+                </div>
+                <div class="col-4">
+                    <img src="../../../assets/clip-searching-for-universities-online 1.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
