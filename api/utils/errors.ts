@@ -17,3 +17,8 @@ export const BAD_REQUEST = {
   success: false,
   error: "Uh,oh! The request is badly made",
 };
+
+export const USER_ALREADY_EXISTS = {
+  success: false,
+  error: "Uh,oh! It seems you have already registered before",
+};

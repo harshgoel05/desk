@@ -5,6 +5,10 @@ import { config } from "dotenv";
 import rateLimit from "express-rate-limit";
 import { TOO_MANY_REQUESTS_ERROR } from "./api/utils/errors";
 import { initDbClient } from "./api/utils/database";
+import userController from "./api/user/user-controller";
+import authController from "./api/auth/auth-controller";
+
+
 async function createServer() {
   /************************************************
                     Initialize server
@@ -25,9 +29,8 @@ async function createServer() {
   /************************************************
                     Mount Routes
   *************************************************/
-  app.get("/", (req, res) => {
-    res.send("Hi");
-  });
+  app.use("/api/v1/user", userController());
+  app.use("/api/v1/auth", authController());
 
   /************************************************
                     Start server
