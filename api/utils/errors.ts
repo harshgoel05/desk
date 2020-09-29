@@ -32,3 +32,12 @@ export const WRONG_PASSWORD = {
   success: false,
   error: "Uh,oh ! It seems you havn't entered correct password",
 };
+
+export const CLASSROOM_DOESNOT_EXISTS = {
+  success: false,
+  error: "Invalid! The classroom code seems to be invalid",
+};
+export const ALREADY_JOINED_CLASSROOM = {
+  success: false,
+  error: "Wait, you are already in that class? Aren't you?",
+};
