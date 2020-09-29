@@ -33,7 +33,13 @@ async function createServer() {
   app.use("/api/v1/auth", authController());
   app.use("/api/v1/class", classController());
   app.use("/api/v1/test", testController());
-
+  /************************************************
+                    Serve Angular File
+  *************************************************/
+  app.use(express.static(__dirname + "/client"));
+  app.get("*", function (req, res) {
+    res.sendFile(__dirname + "/client/index.html");
+  });
   /************************************************
                     Start server
   *************************************************/
