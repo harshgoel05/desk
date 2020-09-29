@@ -41,3 +41,7 @@ export const ALREADY_JOINED_CLASSROOM = {
   success: false,
   error: "Wait, you are already in that class? Aren't you?",
 };
+export const NO_CLASSROOMS_FOUND = {
+  success: false,
+  error: "No classrooms found! Join or Create one now!",
+};

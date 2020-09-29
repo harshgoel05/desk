@@ -3,7 +3,12 @@ import { authenticate, getUser } from "../auth/auth";
 import { SERVER_ERROR } from "../utils/errors";
 import { validateRequest } from "../utils/validator";
 import { classSchema } from "./class-model";
-import { createClass, deleteClass, joinClass } from "./class-service";
+import {
+  createClass,
+  deleteClass,
+  joinClass,
+  getClasses,
+} from "./class-service";
 
 export async function addClassHandler(req: Request, res: Response) {
   const user = res.locals.user;
@@ -41,6 +46,18 @@ export async function joinClassHandler(req: Request, res: Response) {
   }
 }
 
+export async function getClassesHandler(req: Request, res: Response) {
+  const user = res.locals.user;
+  try {
+    const classes = await getClasses(user);
+    res.status(200).send(classes);
+  } catch (err) {
+    console.log(err);
+    if (err.code) res.status(err.code).json(err.message);
+    else res.status(500).json(SERVER_ERROR);
+  }
+}
+
 export default function classController() {
   const router = Router();
   router.post(
@@ -51,5 +68,6 @@ export default function classController() {
   );
   router.delete("/remove/:classid", authenticate(), deleteClassHandler);
   router.post("/join/:classid", authenticate(), joinClassHandler);
+  router.get("/", authenticate(), getClassesHandler);
   return router;
 }
