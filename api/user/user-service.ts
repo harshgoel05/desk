@@ -53,3 +53,15 @@ export async function getUserData(userData: any) {
   if (!user) throw { code: 401, message: USER_DOESNOT_EXISTS };
   return { ...userData, ...user };
 }
+export async function verifyEmail(email: any) {
+  const dbClient = await getDbClient();
+  const user = await dbClient
+    .db()
+    .collection("users")
+    .findOne({ email: email }, { projection: { _id: 0, password: 0 } });
+  if (!user) throw { code: 401, message: USER_DOESNOT_EXISTS };
+  await dbClient
+    .db()
+    .collection("users")
+    .findOneAndUpdate({ email: email }, { $set: { isVerified: true } });
+}
