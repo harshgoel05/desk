@@ -6,7 +6,8 @@
   "author": "harshgoel05 <harshgoel05@gmail.com>",
   "scripts": {
     "start": "node build/server.js",
-    "build": "yarn tsc",
+    "buildDev": "cd client && yarn && npx ncp dist/onlineTest ../build/client/ && cd .. && yarn tsc",
+    "build": "cd client && yarn && yarn build && npx ncp dist/onlineTest ../build/client/ && cd .. && yarn tsc",
     "dev": "npx tsc-watch --onSuccess \"node ./build/server.js\"",
     "tsc": "tsc"
   },
