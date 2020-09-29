@@ -13,7 +13,7 @@ export function authenticate() {
     }
 
     try {
-      const user = await getUser(token); //FIXME  Get user
+      const user = await getUser(token);
       if (!user) {
         return res.status(401).json(UNAUTHORIZED_ERROR);
       }

@@ -7,8 +7,7 @@ import { TOO_MANY_REQUESTS_ERROR } from "./api/utils/errors";
 import { initDbClient } from "./api/utils/database";
 import userController from "./api/user/user-controller";
 import authController from "./api/auth/auth-controller";
-
-
+import classController from "./api/class/class-controller";
 async function createServer() {
   /************************************************
                     Initialize server
@@ -31,6 +30,7 @@ async function createServer() {
   *************************************************/
   app.use("/api/v1/user", userController());
   app.use("/api/v1/auth", authController());
+  app.use("/api/v1/class", classController());
 
   /************************************************
                     Start server
