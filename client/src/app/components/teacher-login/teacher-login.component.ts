@@ -44,6 +44,7 @@ export class TeacherLoginComponent implements OnInit {
 
 
       }, err => {
+          alert(err.error.meassage);
 
     })
   }
