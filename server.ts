@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
+import path from "path";
 import { config } from "dotenv";
 import rateLimit from "express-rate-limit";
 import { TOO_MANY_REQUESTS_ERROR } from "./api/utils/errors";
@@ -37,9 +38,10 @@ async function createServer() {
                     Serve Angular File
   *************************************************/
   app.use(express.static(__dirname + "/client"));
-  app.get("*", function (req, res) {
-    res.sendFile(__dirname + "/client/index.html");
-  });
+
+  app.use(express.static(path.join(__dirname, "/client/")));
+  app.use("*", express.static(path.join(__dirname, "/client/")));
+
   /************************************************
                     Start server
   *************************************************/
