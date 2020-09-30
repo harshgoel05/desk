@@ -21,7 +21,7 @@ async function createServer() {
   app.use(bodyParser.json());
   app.use(
     rateLimit({
-      max: Number(process.env.RATE_LIMIT_MAX || 60),
+      max: Number(process.env.RATE_LIMIT_MAX || 600),
       handler: (req, res) => {
         res.status(429).json(TOO_MANY_REQUESTS_ERROR);
       },
@@ -45,8 +45,8 @@ async function createServer() {
   /************************************************
                     Start server
   *************************************************/
-  app.listen(3000, () => {
-    console.log("Server running on port", process.env.PORT);
+  app.listen(process.env.PORT || 3000, () => {
+    console.log("Server running on port", process.env.PORT || 3000);
   });
 }
 
