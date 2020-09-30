@@ -4,8 +4,8 @@ export const classSchema = yup.object().shape({
   subject_code: yup.string().required(),
   subject: yup.string().required(),
   meeting: yup.object({
-    link: yup.string().url().required(),
-    provider: yup.string().required(),
+    link: yup.string().url(),
+    provider: yup.string(),
   }),
   tests: yup.array().default(function () {
     return [];
