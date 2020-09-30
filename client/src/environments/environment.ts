@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BaseURL: 'https://iamdesk.herokuapp.com/api/v1/',
+  BaseURL: '/api/v1/',
 };
 
 /*
